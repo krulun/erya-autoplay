@@ -1,6 +1,8 @@
 var v,time,timeout,isCur = false;
-var beginId = Number($('#chapterIdid').val());//获取当前视频的id
 var courseParams = getCourse();
+var beginId = Number(courseParams.chapterId);
+var courseId = courseParams.courseId;
+var clazzid = courseParams.clazzid;
 function play(){
     v = document.querySelector('iframe').contentDocument.querySelector('iframe').contentDocument.querySelector('#video_html5_api');
     v.onpause = function(e){this.play()};
@@ -18,7 +20,7 @@ function play(){
 function next(){
 	beginId++;
   isCur = false;
-	getTeacherAjax(courseParams.courseId,courseParams.clazzid,''+beginId);//传入课程所需参数
+	getTeacherAjax(courseId,clazzid,''+beginId);//传入课程所需参数
     setTimeout(play,2000)
     console.log(time,beginId)
 	//setTimeout(next,20000)
