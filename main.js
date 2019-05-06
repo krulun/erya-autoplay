@@ -3,6 +3,8 @@ var courseParams = getCourse();
 var beginId = Number(courseParams.chapterId);
 var courseId = courseParams.courseId;
 var clazzid = courseParams.clazzid;
+courseParams = null;
+getCourse = null;
 function play(){
     v = document.querySelector('iframe').contentDocument.querySelector('iframe').contentDocument.querySelector('#video_html5_api');
     v.onpause = function(e){this.play()};
